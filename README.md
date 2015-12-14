@@ -6,4 +6,4 @@ Usage (as root):
     apt-get update && apt-get -y install git
     cd /opt
     git clone https://github.com/Wh1t3Rh1n0/deb2kali
-    bash deb2kali.sh
+    bash deb2kali/deb2kali.sh
