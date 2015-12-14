@@ -23,9 +23,9 @@ apt-get -y autoremove --purge
 apt-get -y install kali-linux
 
 ### Downgrade specific packages to their Kali Linux versions ###
-apt-get -y install tzdata=2015d-0+deb8u1
-apt-get -y install libc6=2.19-18
-apt-get -y install systemd=215-17+deb8u1 libsystemd0=215-17+deb8u1
+apt-get -y --force-yes install tzdata=2015d-0+deb8u1
+apt-get -y --force-yes install libc6=2.19-18
+apt-get -y --force-yes install systemd=215-17+deb8u1 libsystemd0=215-17+deb8u1
 
 ### Double-check that nothing else needs to be updated ###
 apt-get update
