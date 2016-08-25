@@ -33,7 +33,7 @@ fix_depends() {
 
 target=$1
 
-output=$(apt-get install $target 2>/dev/null | grep -A100 'unmet dependencies')
+output=$(apt-get -y --force-yes install $target 2>/dev/null | grep -A100 'unmet dependencies')
 
 # Make for loop iterate over lines, not spaces
 IFS=$(echo -en "\n\b")
