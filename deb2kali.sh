@@ -1,8 +1,14 @@
 #!/bin/bash -v
 
+if [ "$(whoami)" != "root" ]; then
+    echo "***"
+    echo "*** This script needs to be run as root or in conjunction with the sudo command!"
+    echo "***"
+fi
+
 ### Install needed packages
-apt-get update
-apt-get install -y dirmngr
+apt update
+apt -y install dirmngr git
 
 ### Add the Kali Linux GPG keys to aptitude ###
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
@@ -14,12 +20,17 @@ deb http://http.kali.org/kali kali-rolling main non-free contrib
 # deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 EOF
 
+### Default to installing the base kali system or do a full install if requested
+### It should be noted doing a "full" install does not install X windows
+PACKAGE="kali-linux"
+if [ "$1" == "full" ]; then PACKAGE="kali-linux-full"; fi
+
 ### Update and install base packages ###
-apt-get update
-apt-get -y upgrade
-apt-get -y dist-upgrade
-apt-get -y autoremove --purge
-apt-get -y install kali-linux
+apt update
+apt -y upgrade
+apt -y dist-upgrade
+apt -y autoremove --purge
+apt -y install $PACKAGE
 
 ### Downgrade specific packages to their Kali Linux versions ###
 ### * Commented out since this is currently no longer necessary (2017-09-17).
@@ -34,6 +45,6 @@ apt-get -y install kali-linux
 #apt-get -y dist-upgrade
 
 ### Clean up ###
-apt-get -y autoremove --purge
-apt-get clean
+apt -y autoremove --purge
+apt clean
 echo Done.
