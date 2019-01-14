@@ -11,3 +11,9 @@ Usage (as root):
 Afterward, you can either install individual tools one by one or install them all with:
 
     apt-get -y install kali-linux-full
+
+# Added Features
+Added a pre-start warning if the script isn't being run as root.
+Added git to pre-installation packages
+Changed from using 'apt-get' to 'apt' so installation progress is easier to follow.
+Added an optional command-line argument 'full' to install kali-linux-full instead of kali-linux.
