@@ -2,7 +2,7 @@
 
 if [ "$(whoami)" != "root" ]; then
     echo "***"
-    echo "*** This script needs to be run as root, a user with root permissions, or in conjunction with the sudo command. If you experience errors while running it, double check your user permissions."
+    echo "*** This script needs to be run as root or inconjunction with the sudo command!"
     echo "***"
 fi
 
