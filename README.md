@@ -1,5 +1,5 @@
 # deb2kali
-A Script to Convert Debian Linux (8.1) into Kali Linux
+A Script to Convert Debian 9 Linux into Kali Linux
 
 Usage (as root):
 
